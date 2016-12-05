@@ -6,8 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-dbip1 = data_bag_item('db_ip','db_instance_ip')
-$db = dbip1['ip']
+#dbip1 = data_bag_item('db_ip','db_instance_ip')
+#$db = dbip1['ip']
 
 execute "update_apt_repo" do
 	command "apt-get update"
