@@ -34,22 +34,22 @@ end
 
 #end
 
-execute "change_the_ip_of_db" do
-	command "echo #$db > /tmp/ip.txt ; sed -i -e \"s/localhost/#$db/g\" /home/ubuntu/spring/src/main/resources/environment/db.properties"
+#execute "change_the_ip_of_db" do
+#	command "echo #$db > /tmp/ip.txt ; sed -i -e \"s/localhost/#$db/g\" /home/ubuntu/spring/src/main/resources/environment/db.properties"
 #	command "/bin/bash /tmp/db.sh"
-	action :run
-end
+#	action :run
+#end
 
-execute "compile maven project" do
-	command "cd /home/ubuntu/spring/ ; mvn clean install -U"
-	action :run
-end
+#execute "compile maven project" do
+#	command "cd /home/ubuntu/spring/ ; mvn clean install -U"
+#	action :run
+#end
 
-package 'tomcat7' do
-	action :install
-end
+#package 'tomcat7' do
+#	action :install
+#end
 
-execute "move artifacts to tomcat" do
-	command "export JAVA_HOME=\/usr\/lib\/jvm\/java-8-oracle ; export CATALINA_HOME=\/usr\/share\/tomcat7 ; sed -i -e \"s/java-7-oracle/java-7-oracle **\/usr\/lib\/jvm\/java-8-oracle**/g\" /etc/init.d/tomcat7 ; sudo mv /home/ubuntu/spring/target/spring-example.war /var/lib/tomcat7/webapps/ ; /etc/init.d/tomcat7 restart"
-	action :run
-end
+#execute "move artifacts to tomcat" do
+#	command "export JAVA_HOME=\/usr\/lib\/jvm\/java-8-oracle ; export CATALINA_HOME=\/usr\/share\/tomcat7 ; sed -i -e \"s/java-7-oracle/java-7-oracle **\/usr\/lib\/jvm\/java-8-oracle**/g\" /etc/init.d/tomcat7 ; sudo mv /home/ubuntu/spring/target/spring-example.war /var/lib/tomcat7/webapps/ ; /etc/init.d/tomcat7 restart"
+#	action :run
+#end
